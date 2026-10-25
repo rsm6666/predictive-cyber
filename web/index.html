@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>التنبؤ بالهجمات السيبرانية</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<style>
+#groupSwitch{display:flex;gap:8px;margin-bottom:14px;background:var(--bg-2);padding:5px;border-radius:12px;border:1px solid var(--accent-dim)}
+#groupSwitch button{flex:1;padding:12px;border:0;border-radius:9px;font:inherit;font-weight:700;cursor:pointer;background:transparent;color:var(--ink-2);transition:.15s}
+#groupSwitch button.on{background:var(--accent)!important;color:#06121f!important}
+#groupSwitch button:not(.on):hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<header>
+  <div class="hwrap">
+    <div class="logo">
+      <span>التنبؤ بالهجمات<small>Predictive Cyber Defense</small></span>
+    </div>
+    <div class="spacer"></div>
+    <button class="icon-btn" id="themeBtn" title="تبديل الوضع">🌙</button>
+  </div>
+</header>
+
+<div class="container">
+  <div class="gtabs" id="groupSwitch">
+    <button class="on" data-group="real">My Network</button>
+    <button data-group="proof">Dataset (CICIDS)</button>
+  </div>
+
+  <div class="tabs subtabs" id="tabs-real">
+    <button class="on" data-tab="realscan">الكشف اللحظي</button>
+    <button data-tab="proactive">التنبؤ</button>
+  </div>
+
+  <div class="tabs subtabs" id="tabs-proof" style="display:none">
+    <button class="on" data-tab="detect">الكشف اللحظي</button>
+    <button data-tab="forecast">التنبؤ</button>
+  </div>
+
+  <div class="panel on" id="p-realscan">
+    <h2 class="sec">الكشف اللحظي</h2>
+    <button class="btn-primary" id="scanBtn">ابدأ الفحص</button>
+    <span id="scanHint" style="font-size:.8rem;color:var(--ink-2);margin-inline-start:10px"></span>
+    <div class="result hidden" id="scanResult"></div>
+  </div>
+
+  <div class="panel" id="p-proactive">
+    <h2 class="sec">التنبؤ</h2>
+    <button class="btn-primary" id="monBtn">ابدأ التنبؤ</button>
+    <div class="result hidden" id="monResult"></div>
+  </div>
+
+  <div class="panel" id="p-detect">
+    <h2 class="sec">الكشف اللحظي</h2>
+    <button class="btn-primary" id="detectBtn">ابدأ الفحص</button>
+    <div class="result hidden" id="detectResult"></div>
+  </div>
+
+  <div class="panel" id="p-forecast">
+    <h2 class="sec">التنبؤ</h2>
+    <button class="btn-primary" id="fcRandom">ابدأ التنبؤ</button>
+    <div class="result hidden" id="fcResult"></div>
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
