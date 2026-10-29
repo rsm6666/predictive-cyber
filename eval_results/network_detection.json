@@ -1,0 +1,927 @@
+{
+  "summary": {
+    "scan/150": {
+      "volume": 150,
+      "family": "PortScan",
+      "caught": 1.0,
+      "behavioural": 1.0,
+      "behavioural_types": [
+        "net_scan"
+      ],
+      "model": 1.0,
+      "model_family_ok": 1.0,
+      "false_alerts": 0
+    },
+    "scan/25": {
+      "volume": 25,
+      "family": "PortScan",
+      "caught": 1.0,
+      "behavioural": 1.0,
+      "behavioural_types": [
+        "net_scan"
+      ],
+      "model": 1.0,
+      "model_family_ok": 1.0,
+      "false_alerts": 0
+    },
+    "dos/150": {
+      "volume": 150,
+      "family": "DoS",
+      "caught": 1.0,
+      "behavioural": 1.0,
+      "behavioural_types": [
+        "net_flood",
+        "net_scan"
+      ],
+      "model": 1.0,
+      "model_family_ok": 1.0,
+      "false_alerts": 0
+    },
+    "dos/25": {
+      "volume": 25,
+      "family": "DoS",
+      "caught": 1.0,
+      "behavioural": 0.0,
+      "behavioural_types": [],
+      "model": 1.0,
+      "model_family_ok": 1.0,
+      "false_alerts": 0
+    },
+    "ddos/150": {
+      "volume": 150,
+      "family": "DDoS",
+      "caught": 1.0,
+      "behavioural": 1.0,
+      "behavioural_types": [
+        "net_flood"
+      ],
+      "model": 1.0,
+      "model_family_ok": 1.0,
+      "false_alerts": 0
+    },
+    "ddos/25": {
+      "volume": 25,
+      "family": "DDoS",
+      "caught": 1.0,
+      "behavioural": 0.0,
+      "behavioural_types": [],
+      "model": 1.0,
+      "model_family_ok": 1.0,
+      "false_alerts": 0
+    },
+    "brute/150": {
+      "volume": 150,
+      "family": "Brute Force (FTP/SSH)",
+      "caught": 1.0,
+      "behavioural": 1.0,
+      "behavioural_types": [
+        "net_brute",
+        "net_flood"
+      ],
+      "model": 1.0,
+      "model_family_ok": 1.0,
+      "false_alerts": 0
+    },
+    "brute/25": {
+      "volume": 25,
+      "family": "Brute Force (FTP/SSH)",
+      "caught": 1.0,
+      "behavioural": 1.0,
+      "behavioural_types": [
+        "net_brute"
+      ],
+      "model": 1.0,
+      "model_family_ok": 1.0,
+      "false_alerts": 0
+    },
+    "web/150": {
+      "volume": 150,
+      "family": "Web Attack",
+      "caught": 1.0,
+      "behavioural": 1.0,
+      "behavioural_types": [
+        "net_flood"
+      ],
+      "model": 1.0,
+      "model_family_ok": 1.0,
+      "false_alerts": 0
+    },
+    "web/25": {
+      "volume": 25,
+      "family": "Web Attack",
+      "caught": 1.0,
+      "behavioural": 0.0,
+      "behavioural_types": [],
+      "model": 1.0,
+      "model_family_ok": 1.0,
+      "false_alerts": 0
+    },
+    "botnet/150": {
+      "volume": 150,
+      "family": "Botnet",
+      "caught": 1.0,
+      "behavioural": 1.0,
+      "behavioural_types": [
+        "net_flood",
+        "net_scan"
+      ],
+      "model": 1.0,
+      "model_family_ok": 1.0,
+      "false_alerts": 0
+    },
+    "botnet/25": {
+      "volume": 25,
+      "family": "Botnet",
+      "caught": 1.0,
+      "behavioural": 0.0,
+      "behavioural_types": [],
+      "model": 1.0,
+      "model_family_ok": 1.0,
+      "false_alerts": 0
+    },
+    "benign_false_alerts": 0,
+    "benign_minutes": 300
+  },
+  "rows": [
+    {
+      "seed": 1,
+      "attack": "scan",
+      "volume": 150,
+      "family": "PortScan",
+      "caught": true,
+      "behavioural": [
+        "net_scan"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 1,
+      "attack": "scan",
+      "volume": 25,
+      "family": "PortScan",
+      "caught": true,
+      "behavioural": [
+        "net_scan"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 1,
+      "attack": "dos",
+      "volume": 150,
+      "family": "DoS",
+      "caught": true,
+      "behavioural": [
+        "net_flood",
+        "net_scan"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 1,
+      "attack": "dos",
+      "volume": 25,
+      "family": "DoS",
+      "caught": true,
+      "behavioural": [],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 1,
+      "attack": "ddos",
+      "volume": 150,
+      "family": "DDoS",
+      "caught": true,
+      "behavioural": [
+        "net_flood"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 1,
+      "attack": "ddos",
+      "volume": 25,
+      "family": "DDoS",
+      "caught": true,
+      "behavioural": [],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 1,
+      "attack": "brute",
+      "volume": 150,
+      "family": "Brute Force (FTP/SSH)",
+      "caught": true,
+      "behavioural": [
+        "net_brute",
+        "net_flood"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 1,
+      "attack": "brute",
+      "volume": 25,
+      "family": "Brute Force (FTP/SSH)",
+      "caught": true,
+      "behavioural": [
+        "net_brute"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 1,
+      "attack": "web",
+      "volume": 150,
+      "family": "Web Attack",
+      "caught": true,
+      "behavioural": [
+        "net_flood"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 1,
+      "attack": "web",
+      "volume": 25,
+      "family": "Web Attack",
+      "caught": true,
+      "behavioural": [],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 1,
+      "attack": "botnet",
+      "volume": 150,
+      "family": "Botnet",
+      "caught": true,
+      "behavioural": [
+        "net_flood",
+        "net_scan"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 1,
+      "attack": "botnet",
+      "volume": 25,
+      "family": "Botnet",
+      "caught": true,
+      "behavioural": [],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 1,
+      "attack": "benign",
+      "false_alerts": []
+    },
+    {
+      "seed": 2,
+      "attack": "scan",
+      "volume": 150,
+      "family": "PortScan",
+      "caught": true,
+      "behavioural": [
+        "net_scan"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 2,
+      "attack": "scan",
+      "volume": 25,
+      "family": "PortScan",
+      "caught": true,
+      "behavioural": [
+        "net_scan"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 2,
+      "attack": "dos",
+      "volume": 150,
+      "family": "DoS",
+      "caught": true,
+      "behavioural": [
+        "net_flood",
+        "net_scan"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 2,
+      "attack": "dos",
+      "volume": 25,
+      "family": "DoS",
+      "caught": true,
+      "behavioural": [],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 2,
+      "attack": "ddos",
+      "volume": 150,
+      "family": "DDoS",
+      "caught": true,
+      "behavioural": [
+        "net_flood"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 2,
+      "attack": "ddos",
+      "volume": 25,
+      "family": "DDoS",
+      "caught": true,
+      "behavioural": [],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 2,
+      "attack": "brute",
+      "volume": 150,
+      "family": "Brute Force (FTP/SSH)",
+      "caught": true,
+      "behavioural": [
+        "net_brute",
+        "net_flood"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 2,
+      "attack": "brute",
+      "volume": 25,
+      "family": "Brute Force (FTP/SSH)",
+      "caught": true,
+      "behavioural": [
+        "net_brute"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 2,
+      "attack": "web",
+      "volume": 150,
+      "family": "Web Attack",
+      "caught": true,
+      "behavioural": [
+        "net_flood"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 2,
+      "attack": "web",
+      "volume": 25,
+      "family": "Web Attack",
+      "caught": true,
+      "behavioural": [],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 2,
+      "attack": "botnet",
+      "volume": 150,
+      "family": "Botnet",
+      "caught": true,
+      "behavioural": [
+        "net_flood",
+        "net_scan"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 2,
+      "attack": "botnet",
+      "volume": 25,
+      "family": "Botnet",
+      "caught": true,
+      "behavioural": [],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 2,
+      "attack": "benign",
+      "false_alerts": []
+    },
+    {
+      "seed": 3,
+      "attack": "scan",
+      "volume": 150,
+      "family": "PortScan",
+      "caught": true,
+      "behavioural": [
+        "net_scan"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 3,
+      "attack": "scan",
+      "volume": 25,
+      "family": "PortScan",
+      "caught": true,
+      "behavioural": [
+        "net_scan"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 3,
+      "attack": "dos",
+      "volume": 150,
+      "family": "DoS",
+      "caught": true,
+      "behavioural": [
+        "net_flood",
+        "net_scan"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 3,
+      "attack": "dos",
+      "volume": 25,
+      "family": "DoS",
+      "caught": true,
+      "behavioural": [],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 3,
+      "attack": "ddos",
+      "volume": 150,
+      "family": "DDoS",
+      "caught": true,
+      "behavioural": [
+        "net_flood"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 3,
+      "attack": "ddos",
+      "volume": 25,
+      "family": "DDoS",
+      "caught": true,
+      "behavioural": [],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 3,
+      "attack": "brute",
+      "volume": 150,
+      "family": "Brute Force (FTP/SSH)",
+      "caught": true,
+      "behavioural": [
+        "net_brute",
+        "net_flood"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 3,
+      "attack": "brute",
+      "volume": 25,
+      "family": "Brute Force (FTP/SSH)",
+      "caught": true,
+      "behavioural": [
+        "net_brute"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 3,
+      "attack": "web",
+      "volume": 150,
+      "family": "Web Attack",
+      "caught": true,
+      "behavioural": [
+        "net_flood"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 3,
+      "attack": "web",
+      "volume": 25,
+      "family": "Web Attack",
+      "caught": true,
+      "behavioural": [],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 3,
+      "attack": "botnet",
+      "volume": 150,
+      "family": "Botnet",
+      "caught": true,
+      "behavioural": [
+        "net_flood",
+        "net_scan"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 3,
+      "attack": "botnet",
+      "volume": 25,
+      "family": "Botnet",
+      "caught": true,
+      "behavioural": [],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 3,
+      "attack": "benign",
+      "false_alerts": []
+    },
+    {
+      "seed": 4,
+      "attack": "scan",
+      "volume": 150,
+      "family": "PortScan",
+      "caught": true,
+      "behavioural": [
+        "net_scan"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 4,
+      "attack": "scan",
+      "volume": 25,
+      "family": "PortScan",
+      "caught": true,
+      "behavioural": [
+        "net_scan"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 4,
+      "attack": "dos",
+      "volume": 150,
+      "family": "DoS",
+      "caught": true,
+      "behavioural": [
+        "net_flood",
+        "net_scan"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 4,
+      "attack": "dos",
+      "volume": 25,
+      "family": "DoS",
+      "caught": true,
+      "behavioural": [],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 4,
+      "attack": "ddos",
+      "volume": 150,
+      "family": "DDoS",
+      "caught": true,
+      "behavioural": [
+        "net_flood"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 4,
+      "attack": "ddos",
+      "volume": 25,
+      "family": "DDoS",
+      "caught": true,
+      "behavioural": [],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 4,
+      "attack": "brute",
+      "volume": 150,
+      "family": "Brute Force (FTP/SSH)",
+      "caught": true,
+      "behavioural": [
+        "net_brute",
+        "net_flood"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 4,
+      "attack": "brute",
+      "volume": 25,
+      "family": "Brute Force (FTP/SSH)",
+      "caught": true,
+      "behavioural": [
+        "net_brute"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 4,
+      "attack": "web",
+      "volume": 150,
+      "family": "Web Attack",
+      "caught": true,
+      "behavioural": [
+        "net_flood"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 4,
+      "attack": "web",
+      "volume": 25,
+      "family": "Web Attack",
+      "caught": true,
+      "behavioural": [],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 4,
+      "attack": "botnet",
+      "volume": 150,
+      "family": "Botnet",
+      "caught": true,
+      "behavioural": [
+        "net_flood",
+        "net_scan"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 4,
+      "attack": "botnet",
+      "volume": 25,
+      "family": "Botnet",
+      "caught": true,
+      "behavioural": [],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 4,
+      "attack": "benign",
+      "false_alerts": []
+    },
+    {
+      "seed": 5,
+      "attack": "scan",
+      "volume": 150,
+      "family": "PortScan",
+      "caught": true,
+      "behavioural": [
+        "net_scan"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 5,
+      "attack": "scan",
+      "volume": 25,
+      "family": "PortScan",
+      "caught": true,
+      "behavioural": [
+        "net_scan"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 5,
+      "attack": "dos",
+      "volume": 150,
+      "family": "DoS",
+      "caught": true,
+      "behavioural": [
+        "net_flood",
+        "net_scan"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 5,
+      "attack": "dos",
+      "volume": 25,
+      "family": "DoS",
+      "caught": true,
+      "behavioural": [],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 5,
+      "attack": "ddos",
+      "volume": 150,
+      "family": "DDoS",
+      "caught": true,
+      "behavioural": [
+        "net_flood"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 5,
+      "attack": "ddos",
+      "volume": 25,
+      "family": "DDoS",
+      "caught": true,
+      "behavioural": [],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 5,
+      "attack": "brute",
+      "volume": 150,
+      "family": "Brute Force (FTP/SSH)",
+      "caught": true,
+      "behavioural": [
+        "net_brute",
+        "net_flood"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 5,
+      "attack": "brute",
+      "volume": 25,
+      "family": "Brute Force (FTP/SSH)",
+      "caught": true,
+      "behavioural": [
+        "net_brute"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 5,
+      "attack": "web",
+      "volume": 150,
+      "family": "Web Attack",
+      "caught": true,
+      "behavioural": [
+        "net_flood"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 5,
+      "attack": "web",
+      "volume": 25,
+      "family": "Web Attack",
+      "caught": true,
+      "behavioural": [],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 5,
+      "attack": "botnet",
+      "volume": 150,
+      "family": "Botnet",
+      "caught": true,
+      "behavioural": [
+        "net_flood",
+        "net_scan"
+      ],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 5,
+      "attack": "botnet",
+      "volume": 25,
+      "family": "Botnet",
+      "caught": true,
+      "behavioural": [],
+      "model": true,
+      "model_family_ok": true,
+      "false_alerts": []
+    },
+    {
+      "seed": 5,
+      "attack": "benign",
+      "false_alerts": []
+    }
+  ]
+}

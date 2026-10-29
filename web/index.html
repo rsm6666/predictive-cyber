@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>التنبؤ بالهجمات السيبرانية</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="style.css?v=10">
+</head>
+<body data-page="overview" data-source="dataset">
+
+<!-- ===== القائمة الجانبية ===== -->
+<aside class="side">
+  <div class="logo">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+    </span>
+    <span>التنبؤ بالهجمات<small>Predictive Cyber Defense</small></span>
+  </div>
+
+  <nav class="nav" aria-label="الأقسام">
+    <div class="nav-group">منشأتي</div>
+    <button data-page="tenant">
+      <svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg>
+      <span>منشأتي</span>
+    </button>
+    <button data-page="monitor">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+      <span>المراقبة</span>
+    </button>
+    <button data-page="analyst">
+      <svg viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="12" rx="3"/><path d="M12 3v4M9 12h.01M15 12h.01M9 16h6"/></svg>
+      <span>المحلل الذكي</span>
+    </button>
+    <button data-page="settings">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg>
+      <span>الإعدادات</span>
+    </button>
+    <div class="nav-group">عرض بيانات CICIDS</div>
+    <button data-page="overview" class="on">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+      <span>نظرة عامة</span>
+    </button>
+    <button data-page="detect">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/><path d="M8 11h6"/></svg>
+      <span>الكشف اللحظي</span>
+    </button>
+    <button data-page="forecast">
+      <svg viewBox="0 0 24 24"><path d="M3 17l5-5 4 3 8-8"/><path d="M15 7h5v5"/></svg>
+      <span>التنبؤ</span>
+    </button>
+    <button data-page="respond">
+      <svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z"/><path d="M9 9l6 6M15 9l-6 6"/></svg>
+      <span>الاستجابة</span>
+    </button>
+  </nav>
+
+  <div class="side-foot">
+    <div class="tenant-box" id="tenantBox" hidden>
+      <span id="tenantName"></span>
+      <button class="btn-ghost" data-logout>خروج</button>
+    </div>
+    <div class="sys" id="sysStatus"><span class="dot"></span><span>جاري الاتصال بالخادم…</span></div>
+  </div>
+</aside>
+
+<!-- ===== المحتوى ===== -->
+<main class="main">
+  <header class="topbar">
+    <div class="tb-title">
+      <h1 id="pageTitle">نظرة عامة</h1>
+      <p id="pageSub">ملخص أداء النظام وطبقاته الثلاث</p>
+    </div>
+    <div class="seg src-only" id="sourceSwitch" role="tablist" aria-label="مصدر البيانات">
+      <button data-source="dataset" class="on">بيانات CICIDS</button>
+      <button data-source="network">شبكتي الحية</button>
+    </div>
+    <button class="icon-btn" id="themeBtn" title="تبديل الوضع" aria-label="تبديل الوضع">
+      <svg viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+    </button>
+  </header>
+
+  <!-- ---------- نظرة عامة ---------- -->
+  <section class="page on" id="p-overview">
+    <div class="status-card" id="statusCard">
+      <div class="status-icon"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+      <div>
+        <div class="status-title" id="statusTitle">جاري فحص حالة النظام…</div>
+        <div class="status-sub" id="statusSub"></div>
+      </div>
+    </div>
+
+    <h2 class="sec">أداء النماذج</h2>
+    <p class="sec-q">نتائج موثّقة على بيانات CICIDS2017 بتقسيم زمني صارم (النموذج لم يرَ بيانات الاختبار).</p>
+    <div class="kpis" id="kpis">
+      <div class="kpi skeleton"></div><div class="kpi skeleton"></div><div class="kpi skeleton"></div>
+      <div class="kpi skeleton"></div><div class="kpi skeleton"></div><div class="kpi skeleton"></div>
+    </div>
+
+    <h2 class="sec">كيف يعمل النظام</h2>
+    <p class="sec-q">ثلاث طبقات تعمل بالتتابع: نكشف الهجوم، نتوقّع القادم، ثم نقترح الاستجابة.</p>
+    <div class="layers">
+      <button class="layer" data-goto="detect">
+        <span class="layer-n">١</span>
+        <b>الكشف اللحظي</b>
+        <span>Random Forest يصنّف كل اتصال إلى طبيعي أو أحد ٦ أنواع هجوم، ويشرح سبب قراره.</span>
+        <span class="layer-go">افتح ←</span>
+      </button>
+      <button class="layer" data-goto="forecast">
+        <span class="layer-n">٢</span>
+        <b>التنبؤ الاستباقي</b>
+        <span>مجموعة ٥ نماذج LSTM تقرأ آخر ١٠ دقائق وتتوقّع بداية هجوم في الدقيقة التالية.</span>
+        <span class="layer-go">افتح ←</span>
+      </button>
+      <button class="layer" data-goto="respond">
+        <span class="layer-n">٣</span>
+        <b>الاستجابة الآمنة</b>
+        <span>يقترح حظر المصادر أو عزلها مع حواجز أمان (قائمة سماح، حد أدنى للثقة) في بيئة معزولة.</span>
+        <span class="layer-go">افتح ←</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ---------- دخول المنشأة ---------- -->
+  <section class="page" id="p-login">
+    <div class="login-grid">
+      <form class="card" id="signupForm">
+        <div class="card-title">سجّل منشأتك</div>
+        <p class="sec-q">تحصل على مفتاحين: مفتاح استقبال لأنظمتك، ومفتاح لوحة للدخول والموافقة.</p>
+        <input class="field" id="signupName" required maxlength="80" placeholder="اسم المنشأة" autocomplete="organization">
+        <button class="btn-primary" type="submit">تسجيل</button>
+      </form>
+      <form class="card" id="loginForm">
+        <div class="card-title">دخول</div>
+        <p class="sec-q">ادخل بمفتاح اللوحة الذي حصلت عليه عند التسجيل.</p>
+        <input class="field mono" id="loginKey" required placeholder="pc_dash_…" autocomplete="off" dir="ltr">
+        <button class="btn-primary" type="submit">دخول</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ---------- منشأتي ---------- -->
+  <section class="page" id="p-tenant">
+    <div class="card">
+      <div class="card-head"><div><b>بيانات المنشأة</b></div><button class="btn-ghost" data-logout>خروج</button></div>
+      <div id="tenantInfo" style="margin-top:10px"></div>
+    </div>
+    <div class="card" style="margin-top:14px">
+      <div class="card-title">المصادر المتصلة</div>
+      <div class="sources" id="sourcesBox"></div>
+      <div id="anomalyBox"></div>
+      <div id="forecastBox"></div>
+      <details class="connect">
+        <summary>كيف أربط سجلات موقعي؟</summary>
+        <p class="sec-q">أرسل سجلات Nginx/Apache أو سجلات الجدار الناري (iptables/UFW) بمفتاح الاستقبال (<span class="mono">INGEST_KEY</span>)، مثلًا من مهمة cron كل دقيقة:</p>
+        <pre class="code mono" id="ingestExample"></pre>
+      </details>
+      <details class="connect">
+        <summary>كيف أربط وكيل الخادم؟</summary>
+        <p class="sec-q">انسخ مجلد <span class="mono">sensor/</span> إلى خادمك وشغّله بمفتاح الاستقبال. يقرأ ترويسات الحزم فقط ويرسل كل دقيقة ملخصات أرقام للاتصالات، بلا أي محتوى، ولا يغيّر شيئًا في خادمك. يكفيه صلاحية الالتقاط (<span class="mono">CAP_NET_RAW</span>) بدل root:</p>
+        <pre class="code mono" id="agentExample"></pre>
+      </details>
+    </div>
+    <div class="card" style="margin-top:14px">
+      <div class="card-title">الحوادث</div>
+      <div id="incidentsBox"></div>
+    </div>
+  </section>
+
+  <!-- ---------- المراقبة الخارجية ---------- -->
+  <section class="page" id="p-monitor">
+    <form class="card" id="siteForm">
+      <div class="card-head"><div><b>أضف موقعك</b>
+        <span>نراقبه من الخارج بلا أي تثبيت على خادمك: التوفر كل 5 دقائق، وترويسات الأمان والملفات المكشوفة يوميًا بعد التحقق من ملكيتك. حتى 5 مواقع.</span></div></div>
+      <div class="inline site-add">
+        <input class="field mono" id="siteUrl" type="url" placeholder="https://shop.example" dir="ltr" required>
+        <button class="btn-primary" type="submit">إضافة</button>
+      </div>
+    </form>
+    <div id="sitesBox"></div>
+  </section>
+
+  <!-- ---------- الإعدادات ---------- -->
+  <section class="page" id="p-settings">
+    <form class="card" id="settingsForm">
+      <div class="card-title">Webhook (نظامك أو المنفّذ المرجعي)</div>
+      <label class="field-label" for="webhookUrl">رابط يستقبل التقارير وأوامر التنفيذ الموقّعة</label>
+      <input class="field" id="webhookUrl" type="url" placeholder="http://127.0.0.1:9000/" dir="ltr">
+      <div class="secret-row" id="secretRow" hidden>
+        <label class="field-label">سرّ التوقيع (ضعه في المنفّذ: <span class="mono">--secret</span>)</label>
+        <div class="inline"><code class="mono" id="webhookSecret"></code>
+          <button class="btn-ghost" type="button" data-copy="webhookSecret">نسخ</button>
+          <button class="btn-ghost" type="button" id="rotateSecretBtn">تدوير</button></div>
+      </div>
+      <div class="card-title" style="margin-top:16px">Telegram</div>
+      <label class="field-label" for="telegramToken">رمز البوت من BotFather (يُحفظ ولا يُعرض كاملًا)</label>
+      <input class="field mono" id="telegramToken" type="password" autocomplete="off" dir="ltr">
+      <label class="field-label" for="telegramChat">معرّف المحادثة (chat id)</label>
+      <input class="field mono" id="telegramChat" autocomplete="off" dir="ltr">
+      <div class="card-title" style="margin-top:16px">قائمة السماح</div>
+      <label class="field-label" for="allowlist">عناوين IP لا تُحظر أبدًا، عنوان في كل سطر</label>
+      <textarea class="field mono" id="allowlist" rows="4" dir="ltr"></textarea>
+      <button class="btn-primary" type="submit">حفظ الإعدادات</button>
+    </form>
+    <div class="card" style="margin-top:14px">
+      <div class="card-head">
+        <div><b>تدوير المفاتيح</b><span>يولّد مفتاحين جديدين ويُبطل الحاليين فورًا. حدّث أنظمتك بالمفتاح الجديد.</span></div>
+        <button class="btn-ghost" id="rotateBtn">تدوير المفاتيح</button>
+      </div>
+    </div>
+    <div class="card" style="margin-top:14px">
+      <div class="card-head">
+        <div><b>سجل التسليمات</b><span>آخر 20 رسالة: التقارير وأوامر التنفيذ ونتائجها، مع إعادة المحاولة عند الفشل.</span></div>
+        <div class="inline"><button class="btn-ghost" data-test="webhook">اختبار Webhook</button>
+          <button class="btn-ghost" data-test="telegram">اختبار Telegram</button></div>
+      </div>
+      <div id="deliveriesBox" style="margin-top:10px"></div>
+    </div>
+  </section>
+
+  <!-- ---------- المحلل الذكي ---------- -->
+  <section class="page" id="p-analyst">
+    <div class="note" id="agentSetup" hidden>
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+      <span><b>وضع العرض التجريبي:</b> المحلل يتبع خطوات وقوالب ثابتة فوق نتائج النماذج الحقيقية، بلا نموذج لغوي. لتفعيل Claude: انسخ <span class="mono">.env.example</span> إلى <span class="mono">.env</span> وضع المفتاح، ثم أعد تشغيل الخادم.</span>
+    </div>
+    <div class="action-bar">
+      <p><b>محاكاة على بيانات CICIDS:</b> اختر هجومًا وشاهد الوكيل يحقق خطوة بخطوة. حوادث منشأتك الحقيقية تُفتح من «منشأتي». النموذج: <span class="mono" id="agentModel">—</span></p>
+      <select id="agentFamily" class="select" aria-label="نوع الهجوم"></select>
+      <button class="btn-primary" id="agentStart">حاكِ هجومًا</button>
+    </div>
+    <div id="campaignBox"></div>
+    <div class="agent-grid">
+      <div>
+        <div class="card">
+          <div class="card-title">خطوات التحقيق</div>
+          <ol class="timeline" id="agentTimeline"><li class="tl-empty">لم يبدأ أي تحقيق بعد.</li></ol>
+          <div class="sec-q" id="agentTruth" style="margin:10px 0 0"></div>
+        </div>
+        <div id="agentReport" style="margin-top:14px"></div>
+      </div>
+      <aside class="card chat">
+        <div class="card-title">اسأل المحلل</div>
+        <div class="chips">
+          <button class="chip-btn" data-ask>هل شبكتي آمنة الحين؟</button>
+          <button class="chip-btn" data-ask>ليش اقترحت الحظر؟</button>
+          <button class="chip-btn" data-ask>وش المفروض أسوي؟</button>
+        </div>
+        <div class="chat-log" id="chatLog"></div>
+        <form class="chat-form" id="chatForm">
+          <input id="chatInput" placeholder="اكتب سؤالك…" autocomplete="off" aria-label="سؤالك">
+          <button class="btn-primary" type="submit">أرسل</button>
+        </form>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ---------- الكشف اللحظي ---------- -->
+  <section class="page" id="p-detect">
+    <div class="src-dataset">
+      <div class="action-bar">
+        <p>اسحب اتصالًا عشوائيًا من بيانات CICIDS ودع النموذج يصنّفه ويشرح قراره.</p>
+        <button class="btn-primary" id="detectBtn">حلّل اتصالًا</button>
+      </div>
+      <div id="detectResult">
+        <div class="empty-state">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <b>لا يوجد تحليل بعد</b>
+          <span>اضغط «حلّل اتصالًا» لعرض بطاقة الحادثة: النوع، الخطورة، سبب القرار، والتوصية.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="src-network">
+      <div class="action-bar">
+        <p>يلتقط ~١٥٠٠ حزمة من شبكتك ويفحصها بطبقتين: النموذج + الكاشف السلوكي. يحتاج صلاحية sudo.</p>
+        <button class="btn-primary" id="scanBtn">ابدأ فحص الشبكة</button>
+      </div>
+      <div id="scanResult">
+        <div class="empty-state">
+          <svg viewBox="0 0 24 24"><path d="M5 12.5a10 10 0 0 1 14 0"/><path d="M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1"/></svg>
+          <b>لم يبدأ الفحص</b>
+          <span>النتيجة ستظهر هنا خلال ~١٥ ثانية من بدء الفحص.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- التنبؤ ---------- -->
+  <section class="page" id="p-forecast">
+    <div class="src-dataset">
+      <div class="action-bar">
+        <p>اختر سيناريو: نافذة قبل بداية هجوم، أثناء هجوم جارٍ، أو نافذة عشوائية.</p>
+        <div class="btn-group">
+          <button class="btn-primary" data-mode="onset">قبل بداية هجوم</button>
+          <button class="btn-ghost" data-mode="ongoing">هجوم جارٍ</button>
+          <button class="btn-ghost" data-mode="random">عشوائي</button>
+        </div>
+      </div>
+      <div id="fcResult">
+        <div class="empty-state">
+          <svg viewBox="0 0 24 24"><path d="M3 17l5-5 4 3 8-8"/><path d="M15 7h5v5"/></svg>
+          <b>لا يوجد تنبؤ بعد</b>
+          <span>اختر سيناريو لعرض احتمال الهجوم القادم وترافيك آخر ١٠ دقائق.</span>
+        </div>
+      </div>
+
+      <div class="card validate">
+        <div class="card-head">
+          <div>
+            <b>اختبار التحقق</b>
+            <span>تمرير النموذج على آخر ٢٠٪ من الزمن (لم يرها أثناء التدريب) ومقارنته بالحقيقة.</span>
+          </div>
+          <button class="btn-ghost" id="validateBtn">شغّل الاختبار</button>
+        </div>
+        <div id="validateResult"></div>
+      </div>
+    </div>
+
+    <div class="src-network">
+      <div class="action-bar">
+        <p>يبني نوافذ زمنية من ترافيك شبكتك، وبعد ١٠ نوافذ يتنبأ LSTM بالدقيقة التالية. يحتاج صلاحية sudo.</p>
+        <button class="btn-primary" id="monBtn">ابدأ المراقبة</button>
+      </div>
+      <div id="monResult">
+        <div class="empty-state">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <b>المراقبة متوقفة</b>
+          <span>كل نافذة تأخذ ~٢٠ ثانية، وأول تنبؤ بعد اكتمال ١٠ نوافذ.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- الاستجابة ---------- -->
+  <section class="page" id="p-respond">
+    <div class="action-bar">
+      <p>يحلّل نافذة مراقبة من البيانات، يجمّع الاتصالات حسب المصدر، ويقترح إجراءً لكل مصدر.</p>
+      <button class="btn-primary" id="respondBtn">حلّل نافذة المراقبة</button>
+    </div>
+    <div class="note">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+      <span>بيئة معزولة (Sandbox): الإجراءات تُسجَّل ولا تُطبَّق على جهازك. عناوين قائمة السماح لا تُحظر أبدًا.</span>
+    </div>
+    <div id="respondResult">
+      <div class="empty-state">
+        <svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z"/></svg>
+        <b>لا توجد مقترحات بعد</b>
+        <span>اضغط «حلّل نافذة المراقبة» لعرض المصادر المشبوهة والإجراء المقترح لكل منها.</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<dialog class="card keys-dialog" id="keysDialog">
+  <div class="card-title">مفاتيح منشأتك</div>
+  <div class="error-state"><b>احفظ المفتاحين الآن.</b> لن يُعرضا مرة أخرى.</div>
+  <div class="key-row">
+    <span>مفتاح الاستقبال (لأنظمتك، إرسال فقط)</span>
+    <code class="mono" id="ingestKey"></code>
+    <button class="btn-ghost" data-copy="ingestKey">نسخ</button>
+  </div>
+  <div class="key-row">
+    <span>مفتاح اللوحة (للدخول والموافقة)</span>
+    <code class="mono" id="dashKey"></code>
+    <button class="btn-ghost" data-copy="dashKey">نسخ</button>
+  </div>
+  <button class="btn-primary" id="keysDone">حفظتهما، متابعة</button>
+</dialog>
+
+<div class="toast" id="toast"></div>
+<script src="app.js?v=8"></script>
+</body>
+</html>

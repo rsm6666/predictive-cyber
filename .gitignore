@@ -1,0 +1,64 @@
+# الأسرار — لا تُرفع أبدًا
+.env
+.env.*
+!.env.example
+*.key
+*.token
+secrets.*
+credentials.*
+kaggle.json
+
+# قاعدة بيانات المنصّة (مفاتيح المنشآت والأسرار)
+*.db
+*.sqlite
+*.sqlite3
+
+# البيئة الافتراضية
+project/
+venv/
+.venv/
+env/
+
+# كاش بايثون
+__pycache__/
+*.py[cod]
+
+# النماذج المدرّبة (كبيرة — تُعاد بالتدريب)
+*.joblib
+*.keras
+*.h5
+*.pkl
+*.pt
+*.pth
+
+# الداتاست الضخم
+*.parquet
+*.csv
+*.tsv
+dataset/
+CIC-IDS2017/
+Network-Flows/
+MachineLearningCVE/
+
+# كاش ومؤقتات
+dashboard_cache/
+*.pcap
+*.log
+live_monitor_state.json
+live_ids_state.json
+
+# ملفات نظام
+.DS_Store
+__MACOSX/
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# مخرجات الفيديو المولّدة (ثقيلة)
+demo_video/out/
+*.mp4
+
+# بيانات ومخرجات التشغيل
+data/
+agent_runs/

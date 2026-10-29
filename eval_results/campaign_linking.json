@@ -1,0 +1,123 @@
+{
+  "summary": {
+    "scenarios": 10,
+    "precision": 1.0,
+    "recall": 1.0,
+    "one_campaign": 1.0,
+    "approvals_before": 3.0,
+    "downloads_critical": 1.0,
+    "no_download_critical": 0.0
+  },
+  "rows": [
+    {
+      "seed": 1,
+      "downloaded": true,
+      "campaigns": 1,
+      "true_pairs": 6,
+      "predicted_pairs": 6,
+      "correct_pairs": 6,
+      "approvals_before": 3,
+      "approvals_after": 1,
+      "critical": true
+    },
+    {
+      "seed": 1,
+      "downloaded": false,
+      "campaigns": 1,
+      "true_pairs": 6,
+      "predicted_pairs": 6,
+      "correct_pairs": 6,
+      "approvals_before": 3,
+      "approvals_after": 1,
+      "critical": false
+    },
+    {
+      "seed": 2,
+      "downloaded": true,
+      "campaigns": 1,
+      "true_pairs": 6,
+      "predicted_pairs": 6,
+      "correct_pairs": 6,
+      "approvals_before": 3,
+      "approvals_after": 1,
+      "critical": true
+    },
+    {
+      "seed": 2,
+      "downloaded": false,
+      "campaigns": 1,
+      "true_pairs": 6,
+      "predicted_pairs": 6,
+      "correct_pairs": 6,
+      "approvals_before": 3,
+      "approvals_after": 1,
+      "critical": false
+    },
+    {
+      "seed": 3,
+      "downloaded": true,
+      "campaigns": 1,
+      "true_pairs": 6,
+      "predicted_pairs": 6,
+      "correct_pairs": 6,
+      "approvals_before": 3,
+      "approvals_after": 1,
+      "critical": true
+    },
+    {
+      "seed": 3,
+      "downloaded": false,
+      "campaigns": 1,
+      "true_pairs": 6,
+      "predicted_pairs": 6,
+      "correct_pairs": 6,
+      "approvals_before": 3,
+      "approvals_after": 1,
+      "critical": false
+    },
+    {
+      "seed": 4,
+      "downloaded": true,
+      "campaigns": 1,
+      "true_pairs": 6,
+      "predicted_pairs": 6,
+      "correct_pairs": 6,
+      "approvals_before": 3,
+      "approvals_after": 1,
+      "critical": true
+    },
+    {
+      "seed": 4,
+      "downloaded": false,
+      "campaigns": 1,
+      "true_pairs": 6,
+      "predicted_pairs": 6,
+      "correct_pairs": 6,
+      "approvals_before": 3,
+      "approvals_after": 1,
+      "critical": false
+    },
+    {
+      "seed": 5,
+      "downloaded": true,
+      "campaigns": 1,
+      "true_pairs": 6,
+      "predicted_pairs": 6,
+      "correct_pairs": 6,
+      "approvals_before": 3,
+      "approvals_after": 1,
+      "critical": true
+    },
+    {
+      "seed": 5,
+      "downloaded": false,
+      "campaigns": 1,
+      "true_pairs": 6,
+      "predicted_pairs": 6,
+      "correct_pairs": 6,
+      "approvals_before": 3,
+      "approvals_after": 1,
+      "critical": false
+    }
+  ]
+}
